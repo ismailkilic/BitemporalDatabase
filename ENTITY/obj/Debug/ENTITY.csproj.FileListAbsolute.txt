@@ -1,0 +1,5 @@
+C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY\bin\Debug\ENTITY.dll
+C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY\bin\Debug\ENTITY.pdb
+C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY\obj\Debug\ENTITY.csprojResolveAssemblyReference.cache
+C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY\obj\Debug\ENTITY.dll
+C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY\obj\Debug\ENTITY.pdb
