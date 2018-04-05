@@ -7,3 +7,12 @@ C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\BL\bin
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\BL\obj\Debug\BL.dll
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\BL\obj\Debug\BL.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\bin\Debug\BL.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\bin\Debug\BL.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\bin\Debug\DAL.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\bin\Debug\ENTITY.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\bin\Debug\DAL.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\bin\Debug\ENTITY.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\obj\Debug\BL.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BL\obj\Debug\BL.pdb

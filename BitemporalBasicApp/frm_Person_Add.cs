@@ -37,8 +37,7 @@ namespace BitemporalBasicApp
             p.Valid_From = dt_validfrom.Value;
             p.TransType = 1;
             pList.Add(p);
-            MessageBox.Show(pList.Count.ToString());
-                                    // new PersonBL().AddPerson(p);
+           
             this.Close();
         }
     }

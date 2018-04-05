@@ -23,3 +23,28 @@ C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\Bitemp
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\BitemporalBasicApp\bin\Debug\Microsoft.Msagl.Drawing.xml
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\BitemporalBasicApp\bin\Debug\Microsoft.Msagl.GraphViewerGdi.xml
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_CommitHistory.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\BitemporalBasicApp.exe.config
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\BitemporalBasicApp.exe
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\BitemporalBasicApp.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\BL.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\ENTITY.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\Microsoft.Msagl.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\Microsoft.Msagl.Drawing.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\DAL.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\BL.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\ENTITY.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\Microsoft.Msagl.xml
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\Microsoft.Msagl.Drawing.xml
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\Microsoft.Msagl.GraphViewerGdi.xml
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\bin\Debug\DAL.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.csprojResolveAssemblyReference.cache
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.Form1.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_Commit.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_CommitHistory.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_PersonEdit.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_Person_Add.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.Properties.Resources.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.csproj.GenerateResource.Cache
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.exe
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.pdb

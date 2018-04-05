@@ -38,6 +38,7 @@
             this.btn_Commit = new System.Windows.Forms.Button();
             this.btn_refresh_valid_on_branch = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmb_commits = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_locationArchive)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // btn_refresh
             // 
             this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_refresh.Location = new System.Drawing.Point(415, 325);
+            this.btn_refresh.Location = new System.Drawing.Point(566, 438);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(162, 23);
             this.btn_refresh.TabIndex = 1;
@@ -69,13 +70,13 @@
             this.dataGrid_locationArchive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid_locationArchive.Location = new System.Drawing.Point(12, 37);
             this.dataGrid_locationArchive.Name = "dataGrid_locationArchive";
-            this.dataGrid_locationArchive.Size = new System.Drawing.Size(564, 195);
+            this.dataGrid_locationArchive.Size = new System.Drawing.Size(715, 308);
             this.dataGrid_locationArchive.TabIndex = 2;
             // 
             // btn_add_new_person
             // 
             this.btn_add_new_person.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_add_new_person.Location = new System.Drawing.Point(12, 254);
+            this.btn_add_new_person.Location = new System.Drawing.Point(12, 351);
             this.btn_add_new_person.Name = "btn_add_new_person";
             this.btn_add_new_person.Size = new System.Drawing.Size(114, 23);
             this.btn_add_new_person.TabIndex = 3;
@@ -86,7 +87,7 @@
             // btn_edit
             // 
             this.btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_edit.Location = new System.Drawing.Point(135, 254);
+            this.btn_edit.Location = new System.Drawing.Point(135, 351);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(114, 23);
             this.btn_edit.TabIndex = 4;
@@ -97,7 +98,7 @@
             // btn_delete
             // 
             this.btn_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_delete.Location = new System.Drawing.Point(266, 254);
+            this.btn_delete.Location = new System.Drawing.Point(266, 351);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(132, 23);
             this.btn_delete.TabIndex = 5;
@@ -108,7 +109,7 @@
             // btn_refresh_valid
             // 
             this.btn_refresh_valid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_refresh_valid.Location = new System.Drawing.Point(414, 354);
+            this.btn_refresh_valid.Location = new System.Drawing.Point(565, 467);
             this.btn_refresh_valid.Name = "btn_refresh_valid";
             this.btn_refresh_valid.Size = new System.Drawing.Size(162, 23);
             this.btn_refresh_valid.TabIndex = 6;
@@ -119,7 +120,7 @@
             // btn_Commit
             // 
             this.btn_Commit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Commit.Location = new System.Drawing.Point(16, 354);
+            this.btn_Commit.Location = new System.Drawing.Point(12, 467);
             this.btn_Commit.Name = "btn_Commit";
             this.btn_Commit.Size = new System.Drawing.Size(114, 23);
             this.btn_Commit.TabIndex = 7;
@@ -130,7 +131,7 @@
             // btn_refresh_valid_on_branch
             // 
             this.btn_refresh_valid_on_branch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_refresh_valid_on_branch.Location = new System.Drawing.Point(246, 325);
+            this.btn_refresh_valid_on_branch.Location = new System.Drawing.Point(397, 438);
             this.btn_refresh_valid_on_branch.Name = "btn_refresh_valid_on_branch";
             this.btn_refresh_valid_on_branch.Size = new System.Drawing.Size(162, 52);
             this.btn_refresh_valid_on_branch.TabIndex = 8;
@@ -142,16 +143,27 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(246, 298);
+            this.comboBox1.Location = new System.Drawing.Point(397, 380);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(162, 21);
             this.comboBox1.TabIndex = 9;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // cmb_commits
+            // 
+            this.cmb_commits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_commits.FormattingEnabled = true;
+            this.cmb_commits.Location = new System.Drawing.Point(397, 407);
+            this.cmb_commits.Name = "cmb_commits";
+            this.cmb_commits.Size = new System.Drawing.Size(162, 21);
+            this.cmb_commits.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 389);
+            this.ClientSize = new System.Drawing.Size(740, 502);
+            this.Controls.Add(this.cmb_commits);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btn_refresh_valid_on_branch);
             this.Controls.Add(this.btn_Commit);
@@ -183,6 +195,7 @@
         private System.Windows.Forms.Button btn_Commit;
         private System.Windows.Forms.Button btn_refresh_valid_on_branch;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmb_commits;
     }
 }
 

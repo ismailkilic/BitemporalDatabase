@@ -26,6 +26,10 @@ namespace BitemporalBasicApp
             comboBox1.DataSource = new BranchBL().getAllValidBranches();
             comboBox1.DisplayMember = "BranchName";
             comboBox1.ValueMember = "BranchID";
+
+            cmb_commits.DataSource = new CommitBL().getAllCommitsOnBranch(1);
+            cmb_commits.DisplayMember = "name";
+            cmb_commits.ValueMember = "date";
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -94,6 +98,7 @@ namespace BitemporalBasicApp
                 p.PersonID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[1].Value);
                 p.PersonName = ""+(dataGrid_locationArchive.SelectedRows[0].Cells[2].Value);
                 p.Location = "" + (dataGrid_locationArchive.SelectedRows[0].Cells[3].Value);
+                p.TransType = 3;
 
                 if (DialogResult.Yes== MessageBox.Show("Do you want delete this data=?","Warning",MessageBoxButtons.YesNo))
                 {
@@ -143,9 +148,14 @@ namespace BitemporalBasicApp
 
             if (comboBox1.SelectedIndex==0)
             {
-                dataGrid_locationArchive.DataSource = null;
-
-                dataGrid_locationArchive.DataSource = new PersonBL().getPersonOnMaster();
+                if (cmb_commits.SelectedIndex>=0)
+                {
+                    dataGrid_locationArchive.DataSource = null;
+                    Commit c = new Commit();
+                    c.date = Convert.ToDateTime(cmb_commits.SelectedValue);
+                    dataGrid_locationArchive.DataSource = new PersonBL().getPersonOnMaster(c);
+                }
+                
             }
             else
             {
@@ -154,6 +164,22 @@ namespace BitemporalBasicApp
                 dataGrid_locationArchive.DataSource = new PersonBL().getPersonOnBranch(Convert.ToInt32(comboBox1.SelectedValue));
             }
           
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmb_commits.Text = "";
+            try
+            {
+                cmb_commits.DataSource = new CommitBL().getAllCommitsOnBranch(Convert.ToInt32(comboBox1.SelectedValue));
+                cmb_commits.DisplayMember = "name";
+                cmb_commits.ValueMember = "date";
+            }
+            catch (Exception)
+            {
+
+                
+            }
         }
     }
 }

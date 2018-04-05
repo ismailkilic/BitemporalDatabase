@@ -46,18 +46,20 @@ namespace BitemporalBasicApp
             TreeNode treeNode = new TreeNode("Person Table");
 
             treeView1.Nodes.Add(treeNode);
+            treeView1.Nodes[0].Nodes.Add("new Inserts - " + ((from x in personList where x.TransType==1 select x).Count() ));
+            treeView1.Nodes[0].Nodes.Add("new Updates - " + ((from x in personList where x.TransType == 2 select x).Count()));
+            treeView1.Nodes[0].Nodes.Add("new Deletes - " + ((from x in personList where x.TransType == 3 select x).Count()));
+
+         
 
 
-            //foreach (var p in (new PersonBL().getAllChangesForPerson()))
+            
+
+            //foreach (var p in (personList))
             //{
+                
             //    treeView1.Nodes[0].Nodes.Add(p.PersonID.ToString());
             //}
-
-
-            foreach (var p in (personList))
-            {
-                treeView1.Nodes[0].Nodes.Add(p.PersonID.ToString());
-            }
 
 
         }
@@ -68,7 +70,59 @@ namespace BitemporalBasicApp
 
             if (e.Node.Parent!=null)
             {
- dataGridView1.DataSource = new PersonBL().getChangesForAPerson(Convert.ToInt32(e.Node.Text));
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Identity  ID", typeof(string));
+                dt.Columns.Add("Name", typeof(string));
+                dt.Columns.Add("Location", typeof(string));
+                dt.Columns.Add("ValidDate", typeof(string));
+
+                if (e.Node.Parent.Text== "Person Table" )
+                {
+                    if (e.Node.Text.Contains("Insert"))
+                    {
+                        foreach (var p in (from x in personList where x.TransType == 1 select x))
+                        {
+                            DataRow row = dt.NewRow();
+                            row[1] = p.PersonName;
+                              row[2] = p.Location;
+                            row[3] = p.Valid_From;
+
+                            dt.Rows.Add(row);
+                              dt.AcceptChanges();
+                        }
+                    }
+                    else if (e.Node.Text.Contains("Update"))
+                    {
+                        foreach (var p in (from x in personList where x.TransType == 2 select x))
+                        {
+                            DataRow row = dt.NewRow();
+                            row[0] = p.ID;
+                            row[1] = p.PersonName;
+                            row[2] = p.Location;
+                            row[3] = p.Valid_From;
+
+                            dt.Rows.Add(row);
+                            dt.AcceptChanges();
+                        }
+                    }
+                    else if (e.Node.Text.Contains("Delete"))
+                    {
+                        foreach (var p in (from x in personList where x.TransType == 3 select x))
+                        {
+                            DataRow row = dt.NewRow();
+                            row[0] = p.ID;
+                            row[1] = p.PersonName;
+                            row[2] = p.Location;
+                            row[3] = p.Valid_From;
+
+                            dt.Rows.Add(row);
+                            dt.AcceptChanges();
+                        }
+                    }
+                    
+                }
+                dataGridView1.DataSource = dt;
+              //  dataGridView1.DataSource = new PersonBL().getChangesForAPerson(Convert.ToInt32(e.Node.Text));
             }
            
            
@@ -79,10 +133,29 @@ namespace BitemporalBasicApp
 
             if (DialogResult.Yes == MessageBox.Show("Do you want commit?", "Warning", MessageBoxButtons.YesNo))
             {
+                foreach (var p in (from x in personList where x.TransType == 1 select x))
+                {
+                    new PersonBL().AddPerson(p);
+                }
+
+                foreach (var p in (from x in personList where x.TransType == 2 select x))
+                {
+                    new PersonBL().EditPerson(p);
+                }
+
+                foreach (var p in (from x in personList where x.TransType == 3 select x))
+                {
+                    new PersonBL().DeletePerson(p);
+                }
                 Commit c = new Commit();
                 c.name = textBox1.Text;
                 c.branchID = Convert.ToInt32( comboBox1.SelectedValue.ToString());
                 new CommitBL().doCommit(c);
+
+
+                personList.Clear();
+                
+
             }
 
         }

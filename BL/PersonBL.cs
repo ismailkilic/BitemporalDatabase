@@ -50,13 +50,13 @@ namespace BL
             return vt.DataTableYap("sp_getPersonOnBranch", CommandType.StoredProcedure);
         }
 
-        public DataTable getPersonOnMaster()
+        public DataTable getPersonOnMaster(Commit c)
         {
 
             vt.ParametreleriTemizle();
-        
+            vt.InParametreleriEkle("@CommitDate", DbType.DateTime, c.date);
 
-            return vt.DataTableYap("sp_getPersonOnMaster", CommandType.StoredProcedure);
+            return vt.DataTableYap("sp_getPersonOnMaster_New", CommandType.StoredProcedure);
         }
 
 
