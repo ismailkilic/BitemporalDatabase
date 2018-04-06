@@ -100,7 +100,7 @@ namespace BL
             }
         }
 
-        public void EditPerson(Person p)
+        public void EditPerson(Person p,int branchID)
         {
 
             
@@ -109,7 +109,9 @@ namespace BL
             vt.InParametreleriEkle("@PersonName", DbType.String, p.PersonName);
             vt.InParametreleriEkle("@Location", DbType.String, p.Location);
             vt.InParametreleriEkle("@Valid_from", DbType.DateTime, p.Valid_From);
-            
+            vt.InParametreleriEkle("@BranchID", DbType.Int32, branchID);
+
+
 
             try
             {
@@ -121,13 +123,13 @@ namespace BL
                 throw ex;
             }
         }
-        public void DeletePerson(Person p)
+        public void DeletePerson(Person p, int branchID)
         {
 
 
             vt.ParametreleriTemizle();
             vt.InParametreleriEkle("@ID", DbType.Int32, p.ID);
-         
+            vt.InParametreleriEkle("@BranchID", DbType.Int32, branchID);
 
 
             try

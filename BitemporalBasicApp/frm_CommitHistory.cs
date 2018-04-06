@@ -38,8 +38,10 @@ namespace BitemporalBasicApp
             {
             /*    Microsoft.Msagl.Drawing.Node n = new Microsoft.Msagl.Drawing.Node(listCommit[0].ID.ToString())*/;
 
-                graph.AddEdge(listCommit[i].commitPrevious.ToString().Substring(0,5), listCommit[i].name, listCommit[i].commitHash.ToString().Substring(0, 5)) ;
+                graph.AddEdge(listCommit[i].commitPrevious.ToString().Substring(0,5), listCommit[i].name, listCommit[i].commitHash.ToString().Substring(0, 5)).Attr.Color = listCommit[i].branchID == 1 ? Microsoft.Msagl.Drawing.Color.Red : Microsoft.Msagl.Drawing.Color.Green;
+
                 graph.FindNode(listCommit[i].commitHash.ToString().Substring(0, 5)).Id = listCommit[i].ID.ToString();
+                graph.FindNode(listCommit[i].commitHash.ToString().Substring(0, 5)).Attr.FillColor = listCommit[i].branchID == 1 ? Microsoft.Msagl.Drawing.Color.Red : Microsoft.Msagl.Drawing.Color.Green;
             }
 
            

@@ -140,12 +140,12 @@ namespace BitemporalBasicApp
 
                 foreach (var p in (from x in personList where x.TransType == 2 select x))
                 {
-                    new PersonBL().EditPerson(p);
+                    new PersonBL().EditPerson(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
                 }
 
                 foreach (var p in (from x in personList where x.TransType == 3 select x))
                 {
-                    new PersonBL().DeletePerson(p);
+                    new PersonBL().DeletePerson(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
                 }
                 Commit c = new Commit();
                 c.name = textBox1.Text;
