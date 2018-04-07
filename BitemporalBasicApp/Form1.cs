@@ -29,7 +29,7 @@ namespace BitemporalBasicApp
 
             cmb_commits.DataSource = new CommitBL().getAllCommitsOnBranch(1);
             cmb_commits.DisplayMember = "name";
-            cmb_commits.ValueMember = "date";
+            cmb_commits.ValueMember = "ID";
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
@@ -146,23 +146,23 @@ namespace BitemporalBasicApp
         private void btn_refresh_valid_on_branch_Click(object sender, EventArgs e)
         {
 
-            if (comboBox1.SelectedIndex==0)
-            {
+            //if (comboBox1.SelectedIndex==0)
+            //{
                 if (cmb_commits.SelectedIndex>=0)
                 {
                     dataGrid_locationArchive.DataSource = null;
                     Commit c = new Commit();
-                    c.date = Convert.ToDateTime(cmb_commits.SelectedValue);
-                    dataGrid_locationArchive.DataSource = new PersonBL().getPersonOnMaster(c);
+                    c.ID = Convert.ToInt32(cmb_commits.SelectedValue);
+                    dataGrid_locationArchive.DataSource = new PersonBL().getActualPersonOnSelectedCommit(c);
                 }
                 
-            }
-            else
-            {
-                dataGrid_locationArchive.DataSource = null;
+            //}
+            //else
+            //{
+            //    dataGrid_locationArchive.DataSource = null;
 
-                dataGrid_locationArchive.DataSource = new PersonBL().getPersonOnBranch(Convert.ToInt32(comboBox1.SelectedValue));
-            }
+            //    dataGrid_locationArchive.DataSource = new PersonBL().getPersonOnBranch(Convert.ToInt32(comboBox1.SelectedValue));
+            //}
           
         }
 
@@ -173,7 +173,7 @@ namespace BitemporalBasicApp
             {
                 cmb_commits.DataSource = new CommitBL().getAllCommitsOnBranch(Convert.ToInt32(comboBox1.SelectedValue));
                 cmb_commits.DisplayMember = "name";
-                cmb_commits.ValueMember = "date";
+                cmb_commits.ValueMember = "ID";
             }
             catch (Exception)
             {

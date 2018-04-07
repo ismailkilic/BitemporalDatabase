@@ -64,7 +64,9 @@ namespace BitemporalBasicApp
             if (dnode.Node.Id!="Start")
             {
                 dataGridView1.DataSource = new CommitBL().getAllChangesOnCommit(Convert.ToInt32(dnode.Node.Id));
-                 
+                label2.Text = dnode.Node.Id.ToString();
+
+
             }
               
         }

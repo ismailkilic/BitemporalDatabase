@@ -58,6 +58,14 @@ namespace BL
 
             return vt.DataTableYap("sp_getPersonOnMaster_New", CommandType.StoredProcedure);
         }
+        public DataTable getActualPersonOnSelectedCommit(Commit c)
+        {
+
+            vt.ParametreleriTemizle();
+            vt.InParametreleriEkle("@CommitID", DbType.Int32, c.ID);
+
+            return vt.DataTableYap("sp_getActualPersonOnSelectedCommit", CommandType.StoredProcedure);
+        }
 
 
         public List<Person> getAllChangesForPerson()
