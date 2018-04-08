@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-  public  class UrunBLL
+    public class UrunBLL
     {
 
-      public UrunBLL()
+        public UrunBLL()
         {
 
 
         }
-
+        /*
 
       VeritabaniSaglayici vt = new VeritabaniSaglayici();
 
@@ -141,5 +141,6 @@ namespace BLL
             vt.InParametreleriEkle("@bitistarihi", DbType.DateTime, Convert.ToDateTime(bitis));
             return vt.DataTableYap("sp_UrunSatisRapor", CommandType.StoredProcedure);
         }
+    */
     }
 }

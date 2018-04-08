@@ -112,15 +112,23 @@ namespace BL
             return listCommit;
         }
 
-        public DataTable getAllChangesOnCommit(int commitID)
+        public DataTable getAllPersonChangesOnCommit(int commitID)
         {
 
             vt.ParametreleriTemizle();
             vt.InParametreleriEkle("@commitID", DbType.Int32, commitID);
 
-            return vt.DataTableYap("sp_getAllChangesOnCommit", CommandType.StoredProcedure);
+            return vt.DataTableYap("sp_getAllPersonChangesOnCommit", CommandType.StoredProcedure);
         }
 
+        public DataTable getAllBookChangesOnCommit(int commitID)
+        {
+
+            vt.ParametreleriTemizle();
+            vt.InParametreleriEkle("@commitID", DbType.Int32, commitID);
+
+            return vt.DataTableYap("sp_getAllBookChangesOnCommit", CommandType.StoredProcedure);
+        }
 
     }
 }

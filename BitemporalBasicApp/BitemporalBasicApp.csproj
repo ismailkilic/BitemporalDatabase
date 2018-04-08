@@ -67,6 +67,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Book.Designer.cs">
+      <DependentUpon>frm_Book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BookAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BookAdd.Designer.cs">
+      <DependentUpon>frm_BookAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_BookEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BookEdit.Designer.cs">
+      <DependentUpon>frm_BookEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Commit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +96,12 @@
     </Compile>
     <Compile Include="frm_CommitHistory.Designer.cs">
       <DependentUpon>frm_CommitHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Main.Designer.cs">
+      <DependentUpon>frm_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_PersonEdit.cs">
       <SubType>Form</SubType>
@@ -96,11 +120,23 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_Book.resx">
+      <DependentUpon>frm_Book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BookAdd.resx">
+      <DependentUpon>frm_BookAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BookEdit.resx">
+      <DependentUpon>frm_BookEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Commit.resx">
       <DependentUpon>frm_Commit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_CommitHistory.resx">
       <DependentUpon>frm_CommitHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Main.resx">
+      <DependentUpon>frm_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_PersonEdit.resx">
       <DependentUpon>frm_PersonEdit.cs</DependentUpon>

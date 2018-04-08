@@ -3,3 +3,8 @@ C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\DAL\bi
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\DAL\obj\Debug\DAL.dll
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\DAL\obj\Debug\DAL.pdb
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\DAL\bin\Debug\DAL.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\DAL\bin\Debug\DAL.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\DAL\obj\Debug\DAL.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\DAL\obj\Debug\DAL.pdb

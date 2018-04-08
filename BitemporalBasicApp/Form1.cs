@@ -14,8 +14,13 @@ namespace BitemporalBasicApp
 {
     public partial class Form1 : Form
     {
-        public Form1()
+
+        List<Person> personList = new List<Person>();
+
+        public Form1(ObjectForCommit ofc)
         {
+            //  this.ofc = ofc;
+            ofc.personList = personList;
             InitializeComponent();
         }
 
@@ -39,7 +44,7 @@ namespace BitemporalBasicApp
             dataGrid_locationArchive.DataSource = new PersonBL().getAllPersonRows();
         }
 
-        List<Person> personList = new List<Person>();
+       
         private void btn_add_new_person_Click(object sender, EventArgs e)
         {
             frm_Person_Add frmPersonAdd = new frm_Person_Add(personList);
@@ -100,7 +105,7 @@ namespace BitemporalBasicApp
                 p.Location = "" + (dataGrid_locationArchive.SelectedRows[0].Cells[3].Value);
                 p.TransType = 3;
 
-                if (DialogResult.Yes== MessageBox.Show("Do you want delete this data=?","Warning",MessageBoxButtons.YesNo))
+                if (DialogResult.Yes== MessageBox.Show("Do you want delete this data?","Warning",MessageBoxButtons.YesNo))
                 {
                     // new PersonBL().DeletePerson(p);
 
@@ -117,7 +122,7 @@ namespace BitemporalBasicApp
 
             //dataGrid_locationArchive.DataSource = 
 
-                DataTable dt= new PersonBL().getValidPersonRows();
+                DataTable dt= new BookBL().getValidBookRows();
 
 
             //for (int i = 0; i < personList.Count; i++)
@@ -139,8 +144,8 @@ namespace BitemporalBasicApp
 
         private void btn_Commit_Click(object sender, EventArgs e)
         {
-            frm_Commit frm = new frm_Commit(personList);
-            frm.Show();
+            //frm_Commit frm = new frm_Commit(personList);
+            //frm.Show();
         }
 
         private void btn_refresh_valid_on_branch_Click(object sender, EventArgs e)

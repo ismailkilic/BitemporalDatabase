@@ -3,3 +3,8 @@ C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY\obj\Debug\ENTITY.csprojResolveAssemblyReference.cache
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY\obj\Debug\ENTITY.dll
 C:\Users\Vareesa\documents\visual studio 2015\Projects\BitemporalBasicApp\ENTITY\obj\Debug\ENTITY.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\ENTITY\bin\Debug\ENTITY.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\ENTITY\bin\Debug\ENTITY.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\ENTITY\obj\Debug\ENTITY.csprojResolveAssemblyReference.cache
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\ENTITY\obj\Debug\ENTITY.dll
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\ENTITY\obj\Debug\ENTITY.pdb

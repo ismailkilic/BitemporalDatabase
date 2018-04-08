@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CommitBL.cs" />
     <Compile Include="BranchBL.cs" />
+    <Compile Include="BookBL.cs" />
     <Compile Include="PersonBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrunBLL.cs" />

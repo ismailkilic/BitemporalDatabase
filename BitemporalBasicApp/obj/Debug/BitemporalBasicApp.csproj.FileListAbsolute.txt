@@ -48,3 +48,7 @@ C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\
 C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.csproj.GenerateResource.Cache
 C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.exe
 C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.pdb
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_Book.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_Main.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_BookAdd.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_BookEdit.resources
