@@ -17,7 +17,7 @@ namespace BitemporalBasicApp
         public frm_Commit()
         {
             InitializeComponent();
-            
+
 
 
         }
@@ -25,6 +25,10 @@ namespace BitemporalBasicApp
         public frm_Commit(ObjectForCommit ofc)
         {
             InitializeComponent();
+            if (Settings.Default.branchID != 0)
+            {
+                lbl_Branch.Text = Settings.Default.BranchName;
+            }
             comboBox1.DataSource = new BranchBL().getAllValidBranches();
             comboBox1.DisplayMember = "BranchName";
             comboBox1.ValueMember = "BranchID";
@@ -34,8 +38,8 @@ namespace BitemporalBasicApp
 
         private void frm_Commit_Load(object sender, EventArgs e)
         {
-         
-           
+
+
             //
             TreeNode node2 = new TreeNode("C#");
             TreeNode node3 = new TreeNode("VB.NET");
@@ -46,7 +50,7 @@ namespace BitemporalBasicApp
             TreeNode treeNode = new TreeNode("Person Table");
 
             treeView1.Nodes.Add(treeNode);
-            treeView1.Nodes[0].Nodes.Add("new Inserts - " + ((from x in ofc.personList where x.TransType==1 select x).Count() ));
+            treeView1.Nodes[0].Nodes.Add("new Inserts - " + ((from x in ofc.personList where x.TransType == 1 select x).Count()));
             treeView1.Nodes[0].Nodes.Add("new Updates - " + ((from x in ofc.personList where x.TransType == 2 select x).Count()));
             treeView1.Nodes[0].Nodes.Add("new Deletes - " + ((from x in ofc.personList where x.TransType == 3 select x).Count()));
 
@@ -76,12 +80,12 @@ namespace BitemporalBasicApp
         {
             dataGridView1.DataSource = null;
 
-            if (e.Node.Parent!=null)
+            if (e.Node.Parent != null)
             {
                 DataTable dt = new DataTable();
-               
 
-                if (e.Node.Parent.Text== "Person Table" )
+
+                if (e.Node.Parent.Text == "Person Table")
                 {
                     dt.Columns.Add("Identity  ID", typeof(string));
                     dt.Columns.Add("Name", typeof(string));
@@ -94,11 +98,11 @@ namespace BitemporalBasicApp
                         {
                             DataRow row = dt.NewRow();
                             row[1] = p.PersonName;
-                              row[2] = p.Location;
+                            row[2] = p.Location;
                             row[3] = p.Valid_From;
 
                             dt.Rows.Add(row);
-                              dt.AcceptChanges();
+                            dt.AcceptChanges();
                         }
                     }
                     else if (e.Node.Text.Contains("Update"))
@@ -129,7 +133,7 @@ namespace BitemporalBasicApp
                             dt.AcceptChanges();
                         }
                     }
-                    
+
                 }
                 else if (e.Node.Parent.Text == "Book Table")
                 {
@@ -182,64 +186,71 @@ namespace BitemporalBasicApp
 
                 }
                 dataGridView1.DataSource = dt;
-              //  dataGridView1.DataSource = new PersonBL().getChangesForAPerson(Convert.ToInt32(e.Node.Text));
+                //  dataGridView1.DataSource = new PersonBL().getChangesForAPerson(Convert.ToInt32(e.Node.Text));
             }
-           
-           
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (DialogResult.Yes == MessageBox.Show("Do you want commit?", "Warning", MessageBoxButtons.YesNo))
+            if (Settings.Default.branchID != 0)
             {
-                #region forPerson
 
-                foreach (var p in (from x in ofc.personList where x.TransType == 1 select x))
+
+                if (DialogResult.Yes == MessageBox.Show("Do you want commit?", "Warning", MessageBoxButtons.YesNo))
                 {
-                    new PersonBL().AddPerson(p);
+                    #region forPerson
+
+                    foreach (var p in (from x in ofc.personList where x.TransType == 1 select x))
+                    {
+                        new PersonBL().AddPerson(p);
+                    }
+
+                    foreach (var p in (from x in ofc.personList where x.TransType == 2 select x))
+                    {
+                        new PersonBL().EditPerson(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
+                    }
+
+                    foreach (var p in (from x in ofc.personList where x.TransType == 3 select x))
+                    {
+                        new PersonBL().DeletePerson(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
+                    }
+                    #endregion
+
+                    #region forBook
+
+                    foreach (var p in (from x in ofc.bookList where x.TransType == 1 select x))
+                    {
+                        new BookBL().AddBook(p);
+                    }
+
+                    foreach (var p in (from x in ofc.bookList where x.TransType == 2 select x))
+                    {
+                        new BookBL().EditBook(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
+                    }
+
+                    foreach (var p in (from x in ofc.bookList where x.TransType == 3 select x))
+                    {
+                        new BookBL().DeleteBook(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
+                    }
+                    #endregion
+
+                    Commit c = new Commit();
+                    c.name = textBox1.Text;
+                    c.branchID = Convert.ToInt32(Settings.Default.branchID);
+                    new CommitBL().doCommit(c);
+
+
+                    ofc = new ObjectForCommit();
+
+
                 }
-
-                foreach (var p in (from x in ofc.personList where x.TransType == 2 select x))
-                {
-                    new PersonBL().EditPerson(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
-                }
-
-                foreach (var p in (from x in ofc.personList where x.TransType == 3 select x))
-                {
-                    new PersonBL().DeletePerson(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
-                }
-                #endregion
-
-                #region forBook
-
-                foreach (var p in (from x in ofc.bookList where x.TransType == 1 select x))
-                {
-                    new BookBL().AddBook(p);
-                }
-
-                foreach (var p in (from x in ofc.bookList where x.TransType == 2 select x))
-                {
-                    new BookBL().EditBook(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
-                }
-
-                foreach (var p in (from x in ofc.bookList where x.TransType == 3 select x))
-                {
-                    new BookBL().DeleteBook(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
-                }
-                #endregion
-
-                Commit c = new Commit();
-                c.name = textBox1.Text;
-                c.branchID = Convert.ToInt32( comboBox1.SelectedValue.ToString());
-                new CommitBL().doCommit(c);
-
-
-                ofc = new ObjectForCommit(); 
-                
-
             }
-
+            else
+            {
+                MessageBox.Show("Please select a branch and Current Commit before Commit!");
+            }
         }
 
         private void btn_commitHistory_Click(object sender, EventArgs e)

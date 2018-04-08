@@ -36,6 +36,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_commitHistory = new System.Windows.Forms.Button();
+            this.lbl_Branch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,19 +51,20 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(89, 353);
+            this.comboBox1.Location = new System.Drawing.Point(216, 354);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 358);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Select Branch";
+            this.label1.Text = "Selected Branch :";
             // 
             // button1
             // 
@@ -110,11 +112,21 @@
             this.btn_commitHistory.UseVisualStyleBackColor = true;
             this.btn_commitHistory.Click += new System.EventHandler(this.btn_commitHistory_Click);
             // 
+            // lbl_Branch
+            // 
+            this.lbl_Branch.AutoSize = true;
+            this.lbl_Branch.Location = new System.Drawing.Point(110, 358);
+            this.lbl_Branch.Name = "lbl_Branch";
+            this.lbl_Branch.Size = new System.Drawing.Size(10, 13);
+            this.lbl_Branch.TabIndex = 8;
+            this.lbl_Branch.Text = "-";
+            // 
             // frm_Commit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 480);
+            this.Controls.Add(this.lbl_Branch);
             this.Controls.Add(this.btn_commitHistory);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
@@ -142,5 +154,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_commitHistory;
+        private System.Windows.Forms.Label lbl_Branch;
     }
 }

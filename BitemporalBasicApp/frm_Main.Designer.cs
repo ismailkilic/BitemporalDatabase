@@ -64,6 +64,7 @@
             this.btn_frmPersonRead.TabIndex = 2;
             this.btn_frmPersonRead.Text = "Person\'s Books";
             this.btn_frmPersonRead.UseVisualStyleBackColor = true;
+            this.btn_frmPersonRead.Visible = false;
             // 
             // label1
             // 

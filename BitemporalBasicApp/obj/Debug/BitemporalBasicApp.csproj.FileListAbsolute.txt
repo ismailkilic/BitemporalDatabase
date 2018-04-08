@@ -52,3 +52,4 @@ C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\
 C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_Main.resources
 C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_BookAdd.resources
 C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_BookEdit.resources
+C:\Users\Vareesa\Desktop\Github\BitemporalDatabase\BitemporalBasicApp\obj\Debug\BitemporalBasicApp.frm_SellBook.resources

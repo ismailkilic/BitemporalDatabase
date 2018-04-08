@@ -19,8 +19,18 @@ namespace BitemporalBasicApp
         {
             InitializeComponent();
             ofc.bookList = bookList;
+            lbl_branch.Text = Settings.Default.BranchName;
+            lbl_commit.Text = Settings.Default.commitName;
 
-            dataGrid_Archive.DataSource = new BookBL().getAllBookRows();
+            if (Settings.Default.commitID != 0)
+            {
+                dataGrid_Archive.DataSource = null;
+                Commit c = new Commit();
+                c.ID = Convert.ToInt32(Settings.Default.commitID);
+                dataGrid_Archive.DataSource = new PersonBL().getActualPersonOnSelectedCommit(c);
+            }
+            else
+                dataGrid_Archive.DataSource = new BookBL().getAllBookRows();
 
             comboBox1.DataSource = new BranchBL().getAllValidBranches();
             comboBox1.DisplayMember = "BranchName";
@@ -117,6 +127,17 @@ namespace BitemporalBasicApp
                 Commit c = new Commit();
                 c.ID = Convert.ToInt32(cmb_commits.SelectedValue);
                 dataGrid_Archive.DataSource = new BookBL().getActualBookOnSelectedCommit(c);
+
+
+                Settings.Default.commitID = Convert.ToInt32(cmb_commits.SelectedValue);
+                Settings.Default.commitName = Convert.ToString(cmb_commits.Text);
+
+                Settings.Default.branchID = Convert.ToInt32(comboBox1.SelectedValue);
+                Settings.Default.BranchName = Convert.ToString(comboBox1.Text);
+                Settings.Default.Save();
+
+                lbl_branch.Text = Settings.Default.BranchName;
+                lbl_commit.Text = Settings.Default.commitName;
             }
         }
 

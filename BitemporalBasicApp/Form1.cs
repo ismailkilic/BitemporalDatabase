@@ -22,10 +22,20 @@ namespace BitemporalBasicApp
             //  this.ofc = ofc;
             ofc.personList = personList;
             InitializeComponent();
+            lbl_branch.Text = Settings.Default.BranchName;
+            lbl_commit.Text = Settings.Default.commitName;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (Settings.Default.commitID!=0  )
+            {
+                dataGrid_locationArchive.DataSource = null;
+                Commit c = new Commit();
+                c.ID = Convert.ToInt32(Settings.Default.commitID);
+                dataGrid_locationArchive.DataSource = new PersonBL().getActualPersonOnSelectedCommit(c);
+            }
+            else
             dataGrid_locationArchive.DataSource = new PersonBL().getAllPersonRows();
 
             comboBox1.DataSource = new BranchBL().getAllValidBranches();
@@ -44,7 +54,7 @@ namespace BitemporalBasicApp
             dataGrid_locationArchive.DataSource = new PersonBL().getAllPersonRows();
         }
 
-       
+
         private void btn_add_new_person_Click(object sender, EventArgs e)
         {
             frm_Person_Add frmPersonAdd = new frm_Person_Add(personList);
@@ -56,30 +66,30 @@ namespace BitemporalBasicApp
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            if (dataGrid_locationArchive.SelectedRows.Count==0 || dataGrid_locationArchive.SelectedRows.Count >1)
+            if (dataGrid_locationArchive.SelectedRows.Count == 0 || dataGrid_locationArchive.SelectedRows.Count > 1)
             {
                 MessageBox.Show("Please select 1 row");
 
             }
-            else if (dataGrid_locationArchive.SelectedRows[0].Cells[0].Value== null)
+            else if (dataGrid_locationArchive.SelectedRows[0].Cells[0].Value == null)
             {
                 MessageBox.Show("Please select 1 valid row");
             }
-            else 
+            else
             {
 
                 Person p = new Person();
                 p.ID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[0].Value);
                 p.PersonID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[1].Value);
 
-                p.PersonName =  (dataGrid_locationArchive.SelectedRows[0].Cells[2].Value).ToString();
+                p.PersonName = (dataGrid_locationArchive.SelectedRows[0].Cells[2].Value).ToString();
 
                 p.Location = (dataGrid_locationArchive.SelectedRows[0].Cells[3].Value).ToString();
 
 
                 p.Valid_From = Convert.ToDateTime(dataGrid_locationArchive.SelectedRows[0].Cells[5].Value);
 
-                frm_PersonEdit frm = new frm_PersonEdit(p,personList);
+                frm_PersonEdit frm = new frm_PersonEdit(p, personList);
                 frm.ShowDialog();
             }
         }
@@ -101,18 +111,18 @@ namespace BitemporalBasicApp
                 Person p = new Person();
                 p.ID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[0].Value);
                 p.PersonID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[1].Value);
-                p.PersonName = ""+(dataGrid_locationArchive.SelectedRows[0].Cells[2].Value);
+                p.PersonName = "" + (dataGrid_locationArchive.SelectedRows[0].Cells[2].Value);
                 p.Location = "" + (dataGrid_locationArchive.SelectedRows[0].Cells[3].Value);
                 p.TransType = 3;
 
-                if (DialogResult.Yes== MessageBox.Show("Do you want delete this data?","Warning",MessageBoxButtons.YesNo))
+                if (DialogResult.Yes == MessageBox.Show("Do you want delete this data?", "Warning", MessageBoxButtons.YesNo))
                 {
                     // new PersonBL().DeletePerson(p);
 
                     personList.Add(p);
                 }
 
-                
+
             }
         }
 
@@ -122,7 +132,7 @@ namespace BitemporalBasicApp
 
             //dataGrid_locationArchive.DataSource = 
 
-                DataTable dt= new BookBL().getValidBookRows();
+            DataTable dt = new BookBL().getValidBookRows();
 
 
             //for (int i = 0; i < personList.Count; i++)
@@ -137,7 +147,7 @@ namespace BitemporalBasicApp
 
             //}
             dataGrid_locationArchive.DataSource = dt;
-        
+
 
 
         }
@@ -153,14 +163,26 @@ namespace BitemporalBasicApp
 
             //if (comboBox1.SelectedIndex==0)
             //{
-                if (cmb_commits.SelectedIndex>=0)
-                {
-                    dataGrid_locationArchive.DataSource = null;
-                    Commit c = new Commit();
-                    c.ID = Convert.ToInt32(cmb_commits.SelectedValue);
-                    dataGrid_locationArchive.DataSource = new PersonBL().getActualPersonOnSelectedCommit(c);
-                }
-                
+            if (cmb_commits.SelectedIndex >= 0)
+            {
+                dataGrid_locationArchive.DataSource = null;
+                Commit c = new Commit();
+                c.ID = Convert.ToInt32(cmb_commits.SelectedValue);
+                dataGrid_locationArchive.DataSource = new PersonBL().getActualPersonOnSelectedCommit(c);
+
+                Settings.Default.commitID = Convert.ToInt32(cmb_commits.SelectedValue);
+                Settings.Default.commitName = Convert.ToString(cmb_commits.Text);
+
+                Settings.Default.branchID = Convert.ToInt32(comboBox1.SelectedValue);
+                Settings.Default.BranchName = Convert.ToString(comboBox1.Text);
+
+                Settings.Default.Save();
+
+                lbl_branch.Text = Settings.Default.BranchName;
+                lbl_commit.Text = Settings.Default.commitName;
+
+            }
+
             //}
             //else
             //{
@@ -168,7 +190,7 @@ namespace BitemporalBasicApp
 
             //    dataGrid_locationArchive.DataSource = new PersonBL().getPersonOnBranch(Convert.ToInt32(comboBox1.SelectedValue));
             //}
-          
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -183,7 +205,7 @@ namespace BitemporalBasicApp
             catch (Exception)
             {
 
-                
+
             }
         }
     }
