@@ -85,6 +85,12 @@
     <Compile Include="frm_BookEdit.Designer.cs">
       <DependentUpon>frm_BookEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_BooksByPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_BooksByPerson.Designer.cs">
+      <DependentUpon>frm_BooksByPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Commit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_BookEdit.resx">
       <DependentUpon>frm_BookEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_BooksByPerson.resx">
+      <DependentUpon>frm_BooksByPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Commit.resx">
       <DependentUpon>frm_Commit.cs</DependentUpon>

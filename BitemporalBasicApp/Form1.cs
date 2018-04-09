@@ -19,7 +19,7 @@ namespace BitemporalBasicApp
 
         public Form1(ObjectForCommit ofc)
         {
-            //  this.ofc = ofc;
+            
             ofc.personList = personList;
             InitializeComponent();
             lbl_branch.Text = Settings.Default.BranchName;
@@ -130,22 +130,12 @@ namespace BitemporalBasicApp
         {
             dataGrid_locationArchive.DataSource = null;
 
-            //dataGrid_locationArchive.DataSource = 
+          
 
             DataTable dt = new BookBL().getValidBookRows();
 
 
-            //for (int i = 0; i < personList.Count; i++)
-            //{
-
-            //    DataRow row = dt.NewRow();
-            //    row[2] = personList[i].PersonName;
-            //    row[3] = personList[i].Location;
-
-            //    dt.Rows.Add(row);
-            //    dt.AcceptChanges();
-
-            //}
+  
             dataGrid_locationArchive.DataSource = dt;
 
 
@@ -161,13 +151,16 @@ namespace BitemporalBasicApp
         private void btn_refresh_valid_on_branch_Click(object sender, EventArgs e)
         {
 
-            //if (comboBox1.SelectedIndex==0)
-            //{
+           
             if (cmb_commits.SelectedIndex >= 0)
             {
-                dataGrid_locationArchive.DataSource = null;
                 Commit c = new Commit();
                 c.ID = Convert.ToInt32(cmb_commits.SelectedValue);
+
+                new CommitBL().changeVersion(c); // Sistemin Versiyonu değiştiriliyor
+                
+                dataGrid_locationArchive.DataSource = null;
+               
                 dataGrid_locationArchive.DataSource = new PersonBL().getActualPersonOnSelectedCommit(c);
 
                 Settings.Default.commitID = Convert.ToInt32(cmb_commits.SelectedValue);
@@ -183,13 +176,7 @@ namespace BitemporalBasicApp
 
             }
 
-            //}
-            //else
-            //{
-            //    dataGrid_locationArchive.DataSource = null;
-
-            //    dataGrid_locationArchive.DataSource = new PersonBL().getPersonOnBranch(Convert.ToInt32(comboBox1.SelectedValue));
-            //}
+           
 
         }
 
@@ -236,6 +223,36 @@ namespace BitemporalBasicApp
 
                 frm_SellBook frm = new frm_SellBook(p, personList);
                 frm.Show ();
+            }
+        }
+
+        private void btn_ShowBooksSelectedPerson_Click(object sender, EventArgs e)
+        {
+            if (dataGrid_locationArchive.SelectedRows.Count == 0 || dataGrid_locationArchive.SelectedRows.Count > 1)
+            {
+                MessageBox.Show("Please select 1 row");
+
+            }
+            else if (dataGrid_locationArchive.SelectedRows[0].Cells[0].Value == null)
+            {
+                MessageBox.Show("Please select 1 valid row");
+            }
+            else
+            {
+
+                Person p = new Person();
+                p.ID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[0].Value);
+                p.PersonID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[1].Value);
+
+                p.PersonName = (dataGrid_locationArchive.SelectedRows[0].Cells[2].Value).ToString();
+
+                p.Location = (dataGrid_locationArchive.SelectedRows[0].Cells[3].Value).ToString();
+
+
+                p.Valid_From = Convert.ToDateTime(dataGrid_locationArchive.SelectedRows[0].Cells[5].Value);
+
+                frm_BooksByPerson frm = new frm_BooksByPerson(p );
+                frm.Show();
             }
         }
     }

@@ -67,6 +67,17 @@ namespace BL
             return vt.DataTableYap("sp_getActualPersonOnSelectedCommit", CommandType.StoredProcedure);
         }
 
+        public DataTable getBooksByPerson(Person p,Commit c)
+        {
+
+            vt.ParametreleriTemizle();
+            vt.InParametreleriEkle("@commitID", DbType.Int32, c.ID);
+            vt.InParametreleriEkle("@personID", DbType.Int32, p.PersonID);
+
+
+            return vt.DataTableYap("sp_getBookByPerson", CommandType.StoredProcedure);
+        }
+
 
         public List<Person> getAllChangesForPerson()
         {
@@ -111,8 +122,8 @@ namespace BL
         public void SellBookToPerson(Person p,Book b)
         {
             vt.ParametreleriTemizle();
-            vt.InParametreleriEkle("@bookID", DbType.Int32, p.PersonID);
-            vt.InParametreleriEkle("@personID", DbType.Int32, b.BookID);
+            vt.InParametreleriEkle("@bookID", DbType.Int32, b.BookID);
+            vt.InParametreleriEkle("@personID", DbType.Int32, p.PersonID);
       
 
             try

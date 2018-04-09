@@ -191,6 +191,7 @@
             this.btn_ShowBooksSelectedPerson.TabIndex = 13;
             this.btn_ShowBooksSelectedPerson.Text = "Show Selled Books Selected Person";
             this.btn_ShowBooksSelectedPerson.UseVisualStyleBackColor = true;
+            this.btn_ShowBooksSelectedPerson.Click += new System.EventHandler(this.btn_ShowBooksSelectedPerson_Click);
             // 
             // lbl_branch
             // 

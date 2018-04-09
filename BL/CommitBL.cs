@@ -36,7 +36,14 @@ namespace BL
         }
 
 
+        public void changeVersion(Commit c)
+        {
+            vt.ParametreleriTemizle();
+            vt.InParametreleriEkle("@commitID", DbType.Int32, c.ID);
 
+              vt.ExecuteNonQueryYap("sp_changeVersion", CommandType.StoredProcedure);
+
+        }
         public List<Commit> getAllCommits()
         {
             List<Commit> listCommit = new List<Commit>();
@@ -130,5 +137,14 @@ namespace BL
             return vt.DataTableYap("sp_getAllBookChangesOnCommit", CommandType.StoredProcedure);
         }
 
+
+        public DataTable getAllSalesChangesOnCommit(int commitID)
+        {
+
+            vt.ParametreleriTemizle();
+            vt.InParametreleriEkle("@commitID", DbType.Int32, commitID);
+
+            return vt.DataTableYap("sp_getAllSalesChangesOnCommit", CommandType.StoredProcedure);
+        }
     }
 }

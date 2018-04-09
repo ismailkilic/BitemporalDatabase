@@ -70,6 +70,8 @@ namespace BitemporalBasicApp
 
                 dataGridView2.DataSource = new CommitBL().getAllBookChangesOnCommit(Convert.ToInt32(dnode.Node.Id));
 
+                dataGridView3.DataSource = new CommitBL().getAllSalesChangesOnCommit(Convert.ToInt32(dnode.Node.Id));
+
                 lbl_CommitID.Text = dnode.Node.Id.ToString();
                 lbl_CommitName.Text = dnode.Node.InEdges.ToList()[0].LabelText;
 
