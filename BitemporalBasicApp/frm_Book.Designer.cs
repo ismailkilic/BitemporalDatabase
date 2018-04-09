@@ -127,8 +127,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid_Archive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_Archive.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGrid_Archive.Location = new System.Drawing.Point(12, 27);
+            this.dataGrid_Archive.MultiSelect = false;
             this.dataGrid_Archive.Name = "dataGrid_Archive";
+            this.dataGrid_Archive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid_Archive.Size = new System.Drawing.Size(698, 310);
             this.dataGrid_Archive.TabIndex = 13;
             // 

@@ -208,5 +208,35 @@ namespace BitemporalBasicApp
 
             }
         }
+
+        private void btn_addBookToPerson_Click(object sender, EventArgs e)
+        {
+            if (dataGrid_locationArchive.SelectedRows.Count == 0 || dataGrid_locationArchive.SelectedRows.Count > 1)
+            {
+                MessageBox.Show("Please select 1 row");
+
+            }
+            else if (dataGrid_locationArchive.SelectedRows[0].Cells[0].Value == null)
+            {
+                MessageBox.Show("Please select 1 valid row");
+            }
+            else
+            {
+
+                Person p = new Person();
+                p.ID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[0].Value);
+                p.PersonID = Convert.ToInt32(dataGrid_locationArchive.SelectedRows[0].Cells[1].Value);
+
+                p.PersonName = (dataGrid_locationArchive.SelectedRows[0].Cells[2].Value).ToString();
+
+                p.Location = (dataGrid_locationArchive.SelectedRows[0].Cells[3].Value).ToString();
+
+
+                p.Valid_From = Convert.ToDateTime(dataGrid_locationArchive.SelectedRows[0].Cells[5].Value);
+
+                frm_SellBook frm = new frm_SellBook(p, personList);
+                frm.Show ();
+            }
+        }
     }
 }

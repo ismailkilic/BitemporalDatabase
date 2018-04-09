@@ -108,6 +108,24 @@ namespace BL
             }
         }
 
+        public void SellBookToPerson(Person p,Book b)
+        {
+            vt.ParametreleriTemizle();
+            vt.InParametreleriEkle("@bookID", DbType.Int32, p.PersonID);
+            vt.InParametreleriEkle("@personID", DbType.Int32, b.BookID);
+      
+
+            try
+            {
+                vt.ExecuteNonQueryYap("sp_SellBook", System.Data.CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public void EditPerson(Person p,int branchID)
         {
 

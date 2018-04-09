@@ -62,6 +62,12 @@ namespace BitemporalBasicApp
             treeView1.Nodes[1].Nodes.Add("new Updates - " + ((from x in ofc.bookList where x.TransType == 2 select x).Count()));
             treeView1.Nodes[1].Nodes.Add("new Deletes - " + ((from x in ofc.bookList where x.TransType == 3 select x).Count()));
 
+            TreeNode treeNode2 = new TreeNode("Sales Table");
+
+            treeView1.Nodes.Add(treeNode2);
+            treeView1.Nodes[2].Nodes.Add("new Inserts - " + ((from x in ofc.personList from b in x.bookList select b).Count()));
+
+
 
 
 
@@ -83,6 +89,8 @@ namespace BitemporalBasicApp
             if (e.Node.Parent != null)
             {
                 DataTable dt = new DataTable();
+
+                #region Person Table
 
 
                 if (e.Node.Parent.Text == "Person Table")
@@ -135,7 +143,9 @@ namespace BitemporalBasicApp
                     }
 
                 }
-                else if (e.Node.Parent.Text == "Book Table")
+                #endregion
+                #region Book Table
+                if (e.Node.Parent.Text == "Book Table")
                 {
                     dt.Columns.Add("Identity  ID", typeof(string));
                     dt.Columns.Add("Name", typeof(string));
@@ -183,8 +193,41 @@ namespace BitemporalBasicApp
                             dt.AcceptChanges();
                         }
                     }
+                }
+
+                #endregion
+
+                #region Sales Table
+                if (e.Node.Parent.Text == "Sales Table")
+                {
+                    dt.Columns.Add("personID", typeof(string));
+                    dt.Columns.Add("PersonName", typeof(string));
+                    dt.Columns.Add("BookName", typeof(string));
+                    dt.Columns.Add("Author", typeof(string));
+
+                    if (e.Node.Text.Contains("Insert"))
+                    {
+                        foreach (var p in (from x in ofc.personList where x.bookList.Count > 0 select x))
+                        {
+                            foreach (var b in p.bookList)
+                            {
+                                DataRow row = dt.NewRow();
+                                row[0] = p.PersonID;
+                                row[1] = p.PersonName;
+                                row[2] = b.BookName;
+                                row[3] = b.author;
+
+                                dt.Rows.Add(row);
+                                dt.AcceptChanges();
+                            }
+
+                        }
+                    }
 
                 }
+
+                #endregion
+
                 dataGridView1.DataSource = dt;
                 //  dataGridView1.DataSource = new PersonBL().getChangesForAPerson(Convert.ToInt32(e.Node.Text));
             }
@@ -235,6 +278,24 @@ namespace BitemporalBasicApp
                         new BookBL().DeleteBook(p, Convert.ToInt32(comboBox1.SelectedValue.ToString()));
                     }
                     #endregion
+                    #region forSales
+
+                    
+                        foreach (var p in (from x in ofc.personList where x.bookList.Count > 0 select x))
+                        {
+                            foreach (var b in p.bookList)
+                            {
+                                   new PersonBL().SellBookToPerson(p,b);
+
+                            }
+
+                        }
+
+                    
+
+                   
+                    #endregion
+
 
                     Commit c = new Commit();
                     c.name = textBox1.Text;

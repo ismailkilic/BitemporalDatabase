@@ -40,7 +40,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cmb_commits = new System.Windows.Forms.ComboBox();
             this.btn_addBookToPerson = new System.Windows.Forms.Button();
-            this.btn_deleteBookToPerson = new System.Windows.Forms.Button();
             this.btn_ShowBooksSelectedPerson = new System.Windows.Forms.Button();
             this.lbl_branch = new System.Windows.Forms.Label();
             this.lbl_commit = new System.Windows.Forms.Label();
@@ -75,8 +74,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid_locationArchive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_locationArchive.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGrid_locationArchive.Location = new System.Drawing.Point(12, 37);
+            this.dataGrid_locationArchive.MultiSelect = false;
             this.dataGrid_locationArchive.Name = "dataGrid_locationArchive";
+            this.dataGrid_locationArchive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid_locationArchive.Size = new System.Drawing.Size(715, 308);
             this.dataGrid_locationArchive.TabIndex = 2;
             // 
@@ -178,25 +180,16 @@
             this.btn_addBookToPerson.TabIndex = 11;
             this.btn_addBookToPerson.Text = "Sell Book to Selected Person";
             this.btn_addBookToPerson.UseVisualStyleBackColor = true;
-            // 
-            // btn_deleteBookToPerson
-            // 
-            this.btn_deleteBookToPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_deleteBookToPerson.Location = new System.Drawing.Point(135, 380);
-            this.btn_deleteBookToPerson.Name = "btn_deleteBookToPerson";
-            this.btn_deleteBookToPerson.Size = new System.Drawing.Size(114, 48);
-            this.btn_deleteBookToPerson.TabIndex = 12;
-            this.btn_deleteBookToPerson.Text = "Delete Book from Selected Person";
-            this.btn_deleteBookToPerson.UseVisualStyleBackColor = true;
+            this.btn_addBookToPerson.Click += new System.EventHandler(this.btn_addBookToPerson_Click);
             // 
             // btn_ShowBooksSelectedPerson
             // 
             this.btn_ShowBooksSelectedPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_ShowBooksSelectedPerson.Location = new System.Drawing.Point(266, 380);
+            this.btn_ShowBooksSelectedPerson.Location = new System.Drawing.Point(135, 380);
             this.btn_ShowBooksSelectedPerson.Name = "btn_ShowBooksSelectedPerson";
-            this.btn_ShowBooksSelectedPerson.Size = new System.Drawing.Size(132, 48);
+            this.btn_ShowBooksSelectedPerson.Size = new System.Drawing.Size(114, 48);
             this.btn_ShowBooksSelectedPerson.TabIndex = 13;
-            this.btn_ShowBooksSelectedPerson.Text = "Show Book Selected Person";
+            this.btn_ShowBooksSelectedPerson.Text = "Show Selled Books Selected Person";
             this.btn_ShowBooksSelectedPerson.UseVisualStyleBackColor = true;
             // 
             // lbl_branch
@@ -245,7 +238,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_ShowBooksSelectedPerson);
-            this.Controls.Add(this.btn_deleteBookToPerson);
             this.Controls.Add(this.btn_addBookToPerson);
             this.Controls.Add(this.cmb_commits);
             this.Controls.Add(this.comboBox1);
@@ -281,7 +273,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox cmb_commits;
         private System.Windows.Forms.Button btn_addBookToPerson;
-        private System.Windows.Forms.Button btn_deleteBookToPerson;
         private System.Windows.Forms.Button btn_ShowBooksSelectedPerson;
         private System.Windows.Forms.Label lbl_branch;
         private System.Windows.Forms.Label lbl_commit;
