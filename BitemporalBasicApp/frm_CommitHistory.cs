@@ -26,35 +26,22 @@ namespace BitemporalBasicApp
         {
 
             List<Commit> listCommit = new CommitBL().getAllCommits();
-
-
             //create a viewer object 
-
-            //create a graph object 
             Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
-            //  graph.AddNode(listCommit[0].ID.ToString());
+        
 
             for (int i = 0; i < listCommit.Count; i++)
             {
-                /*    Microsoft.Msagl.Drawing.Node n = new Microsoft.Msagl.Drawing.Node(listCommit[0].ID.ToString())*/
-                ;
-
-                graph.AddEdge(listCommit[i].commitPrevious.ToString().Substring(0, 5), listCommit[i].name, listCommit[i].commitHash.ToString().Substring(0, 5)).Attr.Color = listCommit[i].branchID == 1 ? Microsoft.Msagl.Drawing.Color.Red : Microsoft.Msagl.Drawing.Color.Green;
+            graph.AddEdge(listCommit[i].commitPrevious.ToString().Substring(0, 5), listCommit[i].name, listCommit[i].commitHash.ToString().Substring(0, 5)).Attr.Color = listCommit[i].branchID == 1 ? Microsoft.Msagl.Drawing.Color.Red : Microsoft.Msagl.Drawing.Color.Green;
 
                 graph.FindNode(listCommit[i].commitHash.ToString().Substring(0, 5)).Id = listCommit[i].ID.ToString();
                 graph.FindNode(listCommit[i].commitHash.ToString().Substring(0, 5)).UserData = listCommit[i].branchID;
                 graph.FindNode(listCommit[i].commitHash.ToString().Substring(0, 5)).Attr.FillColor = listCommit[i].branchID == 1 ? Microsoft.Msagl.Drawing.Color.Red : Microsoft.Msagl.Drawing.Color.Green;
-            }
-
-
-
+            } 
             graph.FindNode("Start").Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;
 
             viewer.Graph = graph;
-
-
-
-
+             
         }
 
 

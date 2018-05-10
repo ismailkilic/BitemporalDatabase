@@ -27,7 +27,7 @@ namespace BitemporalBasicApp
                 dataGrid_Archive.DataSource = null;
                 Commit c = new Commit();
                 c.ID = Convert.ToInt32(Settings.Default.commitID);
-                dataGrid_Archive.DataSource = new PersonBL().getActualPersonOnSelectedCommit(c);
+                dataGrid_Archive.DataSource = new BookBL().getActualBookOnSelectedCommit(c);
             }
             else
                 dataGrid_Archive.DataSource = new BookBL().getAllBookRows();

@@ -13,7 +13,6 @@ namespace BL
    public class BookBL
     {
         VeritabaniSaglayici vt = new VeritabaniSaglayici();
-
         public DataTable getAllBookRows( )
         {
 
@@ -30,7 +29,6 @@ namespace BL
 
             return vt.DataTableYap("sp_getValidBook", CommandType.StoredProcedure);
         }
-
         public DataTable getChangesForABook(int Book_id)
         {
 
@@ -39,8 +37,6 @@ namespace BL
 
             return vt.DataTableYap("sp_getChangesForABook", CommandType.StoredProcedure);
         }
-
-
         public DataTable getBookOnBranch(int Branch_id)
         {
 
@@ -49,7 +45,6 @@ namespace BL
 
             return vt.DataTableYap("sp_getBookOnBranch", CommandType.StoredProcedure);
         }
-
         public DataTable getBookOnMaster(Commit c)
         {
 
@@ -66,8 +61,6 @@ namespace BL
 
             return vt.DataTableYap("sp_getActualBookOnSelectedCommit", CommandType.StoredProcedure);
         }
-
-
         public List<Book> getAllChangesForBook()
         {
             List<Book> listBook = new List<Book>();
@@ -89,7 +82,6 @@ namespace BL
 
             return listBook;
         }
-
         public void AddBook(Book p)
         {
             vt.ParametreleriTemizle();
@@ -107,7 +99,6 @@ namespace BL
                 throw ex;
             }
         }
-
         public void EditBook(Book p,int branchID)
         {
 
